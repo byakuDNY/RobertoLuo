@@ -24,6 +24,14 @@ CREATE TABLE modelos_automoviles (
     FOREIGN KEY (tipo_id) REFERENCES tipos_automoviles(id)
 );
 
+-- Tabla de propietarios
+CREATE TABLE propietarios (
+    id VARCHAR(11) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100),
+    telefono INT NOT NULL,
+);
+
 -- Tabla de automóviles
 CREATE TABLE automoviles (
     placa VARCHAR(10) PRIMARY KEY,
@@ -34,9 +42,11 @@ CREATE TABLE automoviles (
     color VARCHAR(20),
     numero_motor VARCHAR(50) NOT NULL UNIQUE,
     numero_chasis VARCHAR(50) NOT NULL UNIQUE,
+    propietarios_id VARCHAR(11),
     FOREIGN KEY (marca_id) REFERENCES marcas_automoviles(id),
     FOREIGN KEY (modelo_id) REFERENCES modelos_automoviles(id),
     FOREIGN KEY (tipo_id) REFERENCES tipos_automoviles(id)
+    FOREIGN KEY (propietarios_id) REFERENCES propietarios(id)
 );
 
 -- Insertar datos de ejemplo (marcas de automóviles)

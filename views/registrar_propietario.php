@@ -10,7 +10,7 @@ include "../template/head_template.php";
     </select>
 </div>
 
-<form action="../controllers/procesar_propietario.php" method="post" id="natural_form" style="display: none;">
+<form action="../controllers/procesar_registro_propietario.php" method="post" id="natural_form" style="display: none;">
     <h2>Registrar Propietario Natural</h2>
 
     <label for="nombre">Nombre:</label>
@@ -20,7 +20,7 @@ include "../template/head_template.php";
     <input type="text" name="apellido" id="apellido" required>
 
     <label for="cedula">Cédula:</label>
-    <input type="text" name="cedula" id="cedula" required>
+    <input type="text" name="id" id="cedula" required>
 
     <label for="telefono">Teléfono:</label>
     <input type="tel" name="telefono" id="telefono" required pattern="\d{8}" title="Debe contener 8 dígitos">
@@ -29,14 +29,14 @@ include "../template/head_template.php";
 </form>
 
 
-<form action="../controllers/procesar_propietario.php" method="post" id="juridico_form" style="display: none;">
+<form action="../controllers/procesar_registro_propietario.php" method="post" id="juridico_form" style="display: none;">
     <h2>Registrar Propietario Jurídico</h2>
 
     <label for="nombre_juridico">Nombre de la Organización:</label>
     <input type="text" name="nombre" id="nombre_juridico" required>
 
     <label for="ruc">RUC:</label>
-    <input type="text" name="ruc" id="ruc" required>
+    <input type="text" name="id" id="ruc" required>
 
     <button type="submit">Registrar Propietario</button>
 </form>
