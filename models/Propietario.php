@@ -1,6 +1,5 @@
 <?php
 class Propietario {
-    private $table_name = "propietarios";
     private $conn;
 
     public $id;
@@ -15,9 +14,7 @@ class Propietario {
     public function registrar() {
         try {
             $query =
-                "INSERT INTO " .
-                $this->table_name .
-                " (id, nombre, apellido, telefono) VALUES (:id, :nombre, :apellido, :telefono)";
+                "INSERT INTO propietarios (id, nombre, apellido, telefono) VALUES (:id, :nombre, :apellido, :telefono)";
 
             $stmt = $this->conn->prepare($query);
 
@@ -32,13 +29,12 @@ class Propietario {
             $stmt->bindParam(":telefono", $this->telefono);
 
             if ($stmt->execute()) {
-                return true;
+                return "Registro exitoso";
             }
 
-            return false;
+            return "Error al registrar propietario";
         } catch (Exception $e) {
-            error_log("Error al registrar: " . $e->getMessage());
-            return false;
+            return "Error al registrar propietario: " . $e->getMessage();
         }
     }
 }

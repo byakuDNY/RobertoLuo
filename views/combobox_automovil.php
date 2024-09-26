@@ -67,7 +67,7 @@
             if (marcaValue && tipoValue) {
                 try {
                     const basePath = window.location.pathname.includes('/views/') ? '../controllers/' : 'controllers/';
-                    const response = await fetch(basePath + 'procesar_distritos.php', {
+                    const response = await fetch(basePath + 'procesar_modelo.php', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded'

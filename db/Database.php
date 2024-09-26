@@ -16,7 +16,6 @@ class Database {
         }
     }
 
-    // obtener solamente una instancia del base de datos
     public static function getInstancia() {
         if (self::$instancia == null) {
             self::$instancia = new Database();

@@ -25,5 +25,5 @@ try {
         echo '<option value="">No hay modelos disponibles</option>';
     }
 } catch (Exception $e) {
-    echo '<option value="">Hubo un error al procesar la solicitud: ' . htmlspecialchars($e->getMessage()) . '</option>';
+    echo '<option value="">Hubo un error al procesar la solicitud: ' . $e->getMessage() . '</option>';
 }

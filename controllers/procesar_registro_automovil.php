@@ -18,22 +18,17 @@ try {
     $automovil->numero_chasis = $_POST['numero_chasis'];
     $automovil->propietarios_id = $_POST['propietarios_id'];
 
-    if ($automovil->registrar()) {
-        $output = "Registro realizado exitosamente";
-    } else {
-        $output = "Error al procesar formulario. <br> ¿Ha registrado el propietario?";
-    }
+    $output = $automovil->registrar();
 } catch (Exception $e) {
-    error_log("Error al procesar formulario: " . $e->getMessage());
-    $output = "Error al procesar formulario: " . $e->getMessage();
+    $output = "Error al procesar formulario del automóvil: " . $e->getMessage();
 }
 ?>
-<!-- 
+
 <script>
     setTimeout(() => {
         window.location.href = "../index.php";
     }, 5000);
-</script> -->
+</script>
 
 <style>
     .loader {
@@ -66,8 +61,7 @@ try {
 </style>
 <div class="centrar">
     <h1><?php
-        echo $output;
-        ?></h1>
+        echo $output ?></h1>
     <div class="loader"></div>
     <span>
         Serás redirigido en 5 segundos

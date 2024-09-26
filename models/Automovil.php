@@ -1,7 +1,6 @@
 <?php
 class Automovil {
     private $conn;
-    private $table_name = "automoviles";
 
     public $placa;
     public $marca_id;
@@ -20,9 +19,7 @@ class Automovil {
     public function registrar() {
         try {
             $query =
-                "INSERT INTO " .
-                $this->table_name .
-                " (placa, marca_id, modelo_id, tipo_id, anio, color, numero_motor, numero_chasis, propietarios_id) VALUES (:placa, :marca_id, :modelo_id, :tipo_id, :anio, :color, :numero_motor, :numero_chasis, :propietarios_id)";
+                "INSERT INTO automoviles (placa, marca_id, modelo_id, tipo_id, anio, color, numero_motor, numero_chasis, propietarios_id) VALUES (:placa, :marca_id, :modelo_id, :tipo_id, :anio, :color, :numero_motor, :numero_chasis, :propietarios_id)";
 
             $stmt = $this->conn->prepare($query);
 
@@ -47,17 +44,12 @@ class Automovil {
             $stmt->bindParam(":propietarios_id", $this->propietarios_id);
 
             if ($stmt->execute()) {
-                return true;
+                return "Registro exitoso";
             }
 
-            error_log("Error: Failed to execute INSERT query");
-            return false;
-        } catch (PDOException $e) {
-            error_log("Database error in registrar: " . $e->getMessage());
-            return false;
+            return "Error al registrar automovil";
         } catch (Exception $e) {
-            error_log("General error in registrar: " . $e->getMessage());
-            return false;
+            return "Error al registrar automovil: " . $e->getMessage();
         }
     }
 
@@ -104,6 +96,7 @@ class Automovil {
                     return true;
                 }
             }
+
             return false;
         } catch (Exception $e) {
             error_log("Error al buscar: " . $e->getMessage());

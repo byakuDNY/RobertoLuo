@@ -13,14 +13,9 @@ try {
     $propietario->apellido = $_POST['apellido'] ?? "NULL";
     $propietario->telefono = $_POST['telefono'];
 
-    if ($propietario->registrar()) {
-        $output = "Propietario registrado exitosamente";
-    } else {
-        $output = "Error al procesar formulario";
-    }
+    $output = $propietario->registrar();
 } catch (Exception $e) {
-    error_log("Error al procesar formulario: " . $e->getMessage());
-    $output = "Error al procesar formulario: " . $e->getMessage();
+    $output = "Error al procesar registro del propietario: " . $e->getMessage();
 }
 ?>
 

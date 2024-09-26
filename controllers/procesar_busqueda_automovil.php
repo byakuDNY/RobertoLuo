@@ -58,11 +58,10 @@ try {
         </table>
 <?php
     } else {
-        echo "No se encontró ningún automóvil con la placa especificada.";
+        echo "No se encontró ningún automóvil con la placa de: " . $_POST['placa'];
     }
 } catch (Exception $e) {
-    error_log("Error al procesar formulario: " . $e->getMessage());
-    echo "Error al procesar formulario";
+    echo "Error al buscar el automóvil con la placa de: " . $_POST['placa'] . "Error: " . $e->getMessage();
 }
 ?>
 <br>
