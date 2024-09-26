@@ -37,11 +37,12 @@ try {
                 <th>Placa</th>
                 <th>Marca</th>
                 <th>Modelo</th>
+                <th>Tipo de Vehículo</th>
                 <th>Año</th>
                 <th>Color</th>
                 <th>Número de Motor</th>
                 <th>Número de Chasis</th>
-                <th>Tipo de Vehículo</th>
+                <th>Propietario</th>
             </tr>
             <tr>
                 <td><?php echo $automovil->placa; ?></td>
@@ -52,6 +53,7 @@ try {
                 <td><?php echo $automovil->color; ?></td>
                 <td><?php echo $automovil->numero_motor; ?></td>
                 <td><?php echo $automovil->numero_chasis; ?></td>
+                <td><?php echo $automovil->propietarios_id; ?></td>
             </tr>
         </table>
 <?php

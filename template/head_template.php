@@ -41,6 +41,8 @@
             text-decoration: none;
             border-radius: 5px;
             margin: 10px;
+            width: 100%;
+            text-align: center;
         }
 
         .btn:hover {
@@ -64,7 +66,9 @@
         }
 
         input[type="text"],
-        input[type="number"] {
+        input[type="tel"],
+        input[type="number"],
+        select {
             width: 95%;
             display: block;
             padding: 8px;
@@ -73,7 +77,7 @@
             border-radius: 4px;
         }
 
-        input[type="submit"] {
+        button[type="submit"] {
             display: block;
             padding: 10px;
             background-color: #3B82F6;
@@ -83,7 +87,7 @@
             cursor: pointer;
         }
 
-        input[type="submit"]:hover {
+        button:hover {
             background-color: #1D4ED8;
         }
 
@@ -103,7 +107,10 @@
 
 <body>
     <header>
-        <h1>Sistema de Gestión de Automóviles</h1>
+        <a style="text-decoration: none; color: white;" href="../index.php">
+            <h1>Sistema de Gestión de Automóviles</h1>
+
+        </a>
     </header>
 
     <main>

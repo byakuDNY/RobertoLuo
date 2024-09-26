@@ -10,11 +10,11 @@ try {
 
     $propietario->id = $_POST['id'];
     $propietario->nombre = $_POST['nombre'];
-    $propietario->apellido = $_POST['apellido'];
+    $propietario->apellido = $_POST['apellido'] ?? "NULL";
     $propietario->telefono = $_POST['telefono'];
 
     if ($propietario->registrar()) {
-        $output = "Registro realizado exitosamente";
+        $output = "Propietario registrado exitosamente";
     } else {
         $output = "Error al procesar formulario";
     }

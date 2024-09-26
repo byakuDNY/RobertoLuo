@@ -15,7 +15,9 @@ class Propietario {
     public function registrar() {
         try {
             $query =
-                "INSERT INTO  (id, nombre, apellido, telefono) VALUES (:id, :nombre, :apellido, :telefono)";
+                "INSERT INTO " .
+                $this->table_name .
+                " (id, nombre, apellido, telefono) VALUES (:id, :nombre, :apellido, :telefono)";
 
             $stmt = $this->conn->prepare($query);
 

@@ -29,7 +29,7 @@ CREATE TABLE propietarios (
     id VARCHAR(11) PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100),
-    telefono INT NOT NULL,
+    telefono INT NOT NULL
 );
 
 -- Tabla de automóviles
@@ -45,7 +45,7 @@ CREATE TABLE automoviles (
     propietarios_id VARCHAR(11),
     FOREIGN KEY (marca_id) REFERENCES marcas_automoviles(id),
     FOREIGN KEY (modelo_id) REFERENCES modelos_automoviles(id),
-    FOREIGN KEY (tipo_id) REFERENCES tipos_automoviles(id)
+    FOREIGN KEY (tipo_id) REFERENCES tipos_automoviles(id),
     FOREIGN KEY (propietarios_id) REFERENCES propietarios(id)
 );
 

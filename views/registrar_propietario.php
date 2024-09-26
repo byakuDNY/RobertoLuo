@@ -38,6 +38,9 @@ include "../template/head_template.php";
     <label for="ruc">RUC:</label>
     <input type="text" name="id" id="ruc" required>
 
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" name="telefono" id="telefono" required pattern="\d{8}" title="Debe contener 8 dígitos">
+
     <button type="submit">Registrar Propietario</button>
 </form>
 

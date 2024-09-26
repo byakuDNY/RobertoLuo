@@ -1,64 +1,58 @@
 <?php
-include "../template/head_template.php";
-require_once "../db/Database.php";
 ?>
 
-<h1 style="margin-bottom: 5%;">Ver Las Marcas, Modelos y Tipos de Vehículos</h1>
+<div>
+    <label for="marca_id">Marcas:</label>
+    <select id="marca_id" name="marca_id">
+        <option value="">Seleccione una marca</option>
+        <?php
 
-<form>
-    <div>
-        <label for="marca_id">Marcas:</label>
-        <select id="marca_id" name="marca_id">
-            <option value="">Seleccione una marca</option>
-            <?php
+        $database = Database::getInstancia();
+        $conn = $database->getConnection();
 
-            $database = Database::getInstancia();
-            $conn = $database->getConnection();
+        $stmt = $conn->query("SELECT * FROM marcas_automoviles");
 
-            $stmt = $conn->query("SELECT * FROM marcas_automoviles");
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $filterNombre = htmlspecialchars($row['nombre']);
+        ?>
+            <option value="<?php echo $row['id']; ?>"><?php echo $filterNombre; ?></option>
+        <?php
+        }
+        ?>
+    </select>
+</div>
 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $filterNombre = htmlspecialchars($row['nombre']);
-            ?>
-                <option value="<?php echo $row['id']; ?>"><?php echo $filterNombre; ?></option>
-            <?php
-            }
-            ?>
-        </select>
-    </div>
+<br>
 
-    <br>
+<div>
+    <label for="tipo_id">Tipo:</label>
+    <select id="tipo_id" name="tipo_id">
+        <option value="">Seleccione un tipo</option>
+        <?php
 
-    <div>
-        <label for="tipo_id">Tipo:</label>
-        <select id="tipo_id" name="tipo_id">
-            <option value="">Seleccione un tipo</option>
-            <?php
+        $database = Database::getInstancia();
+        $conn = $database->getConnection();
 
-            $database = Database::getInstancia();
-            $conn = $database->getConnection();
+        $stmt = $conn->query("SELECT * FROM tipos_automoviles");
 
-            $stmt = $conn->query("SELECT * FROM tipos_automoviles");
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $filterNombre = htmlspecialchars($row['nombre']);
+        ?>
+            <option value="<?php echo $row['id']; ?>"><?php echo $filterNombre; ?></option>
+        <?php
+        }
+        ?>
+    </select>
+</div>
 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $filterNombre = htmlspecialchars($row['nombre']);
-            ?>
-                <option value="<?php echo $row['id']; ?>"><?php echo $filterNombre; ?></option>
-            <?php
-            }
-            ?>
-        </select>
-    </div>
+<br>
 
-    <br>
-
-    <div>
-        <label for="modelo_id">Modelo:</label>
-        <select id="modelo_id" name="modelo_id">
-            <option value="">Seleccione un modelo</option>
-        </select>
-    </div>
-</form>
+<div>
+    <label for="modelo_id">Modelo:</label>
+    <select id="modelo_id" name="modelo_id">
+        <option value="">Seleccione un modelo</option>
+    </select>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -72,7 +66,8 @@ require_once "../db/Database.php";
 
             if (marcaValue && tipoValue) {
                 try {
-                    const response = await fetch('../controllers/procesar_distritos.php', {
+                    const basePath = window.location.pathname.includes('/views/') ? '../controllers/' : 'controllers/';
+                    const response = await fetch(basePath + 'procesar_distritos.php', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded'
@@ -101,8 +96,3 @@ require_once "../db/Database.php";
         tipoSelect.addEventListener('change', handleChange);
     });
 </script>
-
-
-<?php
-include "../template/foot_template.php";
-?>
