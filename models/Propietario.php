@@ -34,7 +34,8 @@ class Propietario {
 
             return "Error al registrar propietario";
         } catch (Exception $e) {
-            return "Error al registrar propietario: " . $e->getMessage();
+            error_log("Error al registrar propietario: " . $e->getMessage());
+            return "Error al registrar propietario";
         }
     }
 }

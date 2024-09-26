@@ -49,7 +49,8 @@ class Automovil {
 
             return "Error al registrar automovil";
         } catch (Exception $e) {
-            return "Error al registrar automovil: " . $e->getMessage();
+            error_log("Error al registrar automovil: " . $e->getMessage());
+            return "Error al registrar automovil";
         }
     }
 

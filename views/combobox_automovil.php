@@ -3,7 +3,7 @@
 
 <div>
     <label for="marca_id">Marcas:</label>
-    <select id="marca_id" name="marca_id">
+    <select id="marca_id" name="marca_id" required>
         <option value="">Seleccione una marca</option>
         <?php
 
@@ -26,7 +26,7 @@
 
 <div>
     <label for="tipo_id">Tipo:</label>
-    <select id="tipo_id" name="tipo_id">
+    <select id="tipo_id" name="tipo_id" required>
         <option value="">Seleccione un tipo</option>
         <?php
 
@@ -49,7 +49,7 @@
 
 <div>
     <label for="modelo_id">Modelo:</label>
-    <select id="modelo_id" name="modelo_id">
+    <select id="modelo_id" name="modelo_id" required>
         <option value="">Seleccione un modelo</option>
     </select>
 </div>
